@@ -1,0 +1,30 @@
+{# @var Symfony\Component\Form\FormView form #}
+{# @var int salary #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="mt-3 offset-sm-3 col-sm-6">
+        {{ form_start(form) }}
+
+        <div class="mb-3">
+            {{ form_row(form.age) }}
+        </div>
+        <div class="mb-3">
+            {{ form_row(form.childrenCount) }}
+        </div>
+        <div class="mb-3">
+            {{ form_row(form.usingCar) }}
+        </div>
+        <div class="mb-3">
+            {{ form_row(form.salary) }}
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-3">Calculate salary</button>
+
+        {{ form_end(form) }}
+
+        {% if salary is not null %}
+            <div class="alert alert-success">Salary is {{ salary }}</div>
+        {% endif %}
+    </div>
+{% endblock %}
